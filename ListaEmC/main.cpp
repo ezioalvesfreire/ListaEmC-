@@ -18,23 +18,23 @@ typedef struct _node {
 } node, *list;
 
 
-void insert_list (list *L, student k) {
-	node	*p;
-	p = (node *) malloc (sizeof (node));
-	p->k = k;
-	p->next = *L;
+void insert_list (list *topo, student k) {
+	node	*novo;
+	novo = (node *) malloc (sizeof (node));
+	novo->k = k;
+	novo->next = *topo;
 
-	*L = p;
+	*topo = novo;
 }
 
 
-student *search_list (list L, int id) {
-	node	*p;
+student *search_list (list topo, int id) {
+	node	*novo;
 
-	for (p=L; p && p->k.id != id; p=p->next);
+	for (novo=topo; novo && novo->k.id != id; novo=novo->next);
 
-	if (p)
-		return &p->k;
+	if (novo)
+		return &novo->k;
 	else
 		return NULL;
 }
@@ -48,14 +48,14 @@ void create_list (list *L) {
 
 int main () {
 	list		C;	/* a class of students */
-	student		s, *p;
+	student		s, *novo;
 	int		id;
-	FILE		*f;
+	FILE		*arquivo;
 
 
 
-	f = fopen ("./List.txt", "r");
-	if (!f) {
+	arquivo = fopen ("./List.txt", "r");
+	if (!arquivo) {
 		perror ("List");
 		exit (1);
 	}
@@ -63,27 +63,27 @@ int main () {
 	create_list (&C);
 
 	for (;;) {
-		fscanf (f, "%d %s %f\n", &s.id, s.name, &s.gpa);
-		if (feof (f))
+		fscanf (arquivo, "%d %s %f\n", &s.id, s.name, &s.gpa);
+		if (feof (arquivo))
       break;
 		insert_list (&C, s);
 	}
-	fclose (f);
+	fclose (arquivo);
 
 	for (;;) {
-		printf ("Enter student ID, -1 to finish: ");
+		printf ("Informe ID do estudante, ou <-1> para finalizar: ");
 		scanf ("%d", &id);
 
 		if (id == -1)
        break;
 
-		p = search_list (C, id);
+		novo = search_list (C, id);
 
 
-		if (!p)
-			printf ("ID #%d not found!\n", id);
+		if (!novo)
+			printf ("ID #%d nao encontrado!\n", id);
 		else
-			printf ("%d\t%s\t%0.2f\n", p->id, p->name, p->gpa);
+			printf ("%d\t%s\t%0.2f\n", novo->id, novo->name, novo->gpa);
 	}
 	exit (0);
 }
