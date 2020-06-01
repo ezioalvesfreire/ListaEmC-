@@ -27,7 +27,6 @@ void insert_list (list *topo, student k) {
 	*topo = novo;
 }
 
-
 student *search_list (list topo, int id) {
 	node	*novo;
 
@@ -45,6 +44,36 @@ void create_list (list *L) {
 	*L = NULL;
 }
 
+ FILE* abreArquivo(char caminho[30]){
+    FILE *arquivo;
+   char caso = 'l';
+    switch(caso){
+
+        case'l':
+            arquivo = fopen (caminho,"r");
+        break;
+        case'g':
+            printf("caso <g> gravação em desenvolvimento!");
+            system("pause");
+        break;
+        case'a':
+            printf("caso <a> append em desenvolvimento!");
+            system("pause");
+        break;
+        default:
+            printf("opção invalida");
+    }
+
+
+	if (arquivo == NULL){
+            printf("Nao foi possivel abrir o arquivo");
+			exit (1);
+	}
+	return arquivo;
+   }
+void fecharArquivo(FILE *arquivo){
+    fclose(arquivo);
+}
 
 int main () {
 	list		C;	/* a class of students */
@@ -52,13 +81,9 @@ int main () {
 	int		id;
 	FILE		*arquivo;
 
+	char caminho[30] = "./List.txt";
 
-
-	arquivo = fopen ("./List.txt", "r");
-	if (!arquivo) {
-		perror ("List");
-		exit (1);
-	}
+    arquivo = abreArquivo(caminho);
 
 	create_list (&C);
 

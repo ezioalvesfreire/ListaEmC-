@@ -1,6 +1,9 @@
 # depslib dependency file v1.0
-1590986909 source:c:\users\ezio\desktop\listaemc-\listaemc\main.cpp
+1590994197 source:c:\users\ezio\desktop\listaemc-\listaemc\main.cpp
+	<strings.h>
+	<string.h>
+	<ctype.h>
+	<iostream>
 	<stdio.h>
 	<stdlib.h>
-	<string.h>
 
