@@ -62,28 +62,31 @@ int main () {
 
 	create_list (&C);
 
-	for (;;) {
+ while (!feof(arquivo)){
 		fscanf (arquivo, "%d %s %f\n", &s.id, s.name, &s.gpa);
-		if (feof (arquivo))
-      break;
+
 		insert_list (&C, s);
 	}
-	fclose (arquivo);
+	do{
+		 printf("\n");
+         printf ("Informe a ID do estudante:");
+         printf("\n");
+         printf ("Voltar ao MENU digite 0(zero)");
+         printf("\n");
+         scanf ("%d", &id);
 
-	for (;;) {
-		printf ("Informe ID do estudante, ou <-1> para finalizar: ");
-		scanf ("%d", &id);
+         novo = search_list (C, id);
+		if (id == 0)
+            {
+                printf("VOLTANDO PARA O MENU...");
+            }else if (!novo){
+                  printf ("ID #%d nao encontrado!\n", id);
+            }
 
-		if (id == -1)
-       break;
+		else{
+            printf ("%d\t%s\t%0.2f\n", novo->id, novo->name, novo->gpa);
+		}
 
-		novo = search_list (C, id);
-
-
-		if (!novo)
-			printf ("ID #%d nao encontrado!\n", id);
-		else
-			printf ("%d\t%s\t%0.2f\n", novo->id, novo->name, novo->gpa);
 	}
-	exit (0);
+	 while (id !=0);
 }
