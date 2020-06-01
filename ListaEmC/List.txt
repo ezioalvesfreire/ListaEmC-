@@ -1,0 +1,6 @@
+1 Glauco 4
+2 Maria 5
+3 Clara 10
+4 Jose 9
+5 Pedro 6
+6 Ezio 9.8
