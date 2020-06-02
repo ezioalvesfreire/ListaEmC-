@@ -113,17 +113,62 @@ int main () {
 	student		s, *novo;
 	int		id;
 	FILE		*arquivo;
+	int opcao;
 
 	char caminho[30] = "./List.txt";
+	
+printf("============================LISTA ENCADEADA==========================\n\n");
 
-    arquivo = abreArquivo(caminho);
-   create_list (&C);
-   
-    carregarDados(arquivo, C, s);
+  //  arquivo = abreArquivo(caminho);
+  // create_list (&C);
+  //  carregarDados(arquivo, C, s);
+  //  buscarEstudante(id, novo, C);
     
-    buscarEstudante(id, novo, C);
+    do{
+
+    printf("\n\tMENU\n");
+
+     printf("informe a opcao desejada\n");
+    printf("\n1 - Consultar estudante digite 1");
+    printf("\n2 - Cadastrar estudante digite 2");
+    printf("\n3 - Listar estudantes digite 3");
+    printf("\n4 - sair 4\n\n");
+
+    scanf("%d", &opcao);
+   system( "clear||cls");
+
+    switch(opcao){
+        case 1:
+        	 arquivo = abreArquivo(caminho);
+             create_list (&C);
+             carregarDados(arquivo, C, s);
+             buscarEstudante(id, novo, C);
+          // buscarEstudante(opcao, arquivoTexto, textoAux);
+        break;
+
+        case 2:
+           // buscarEstudante(opcao, arquivoTexto, textoAux );
+       // cadastrarEstudante();
+         system("pause");
+        break;
+        case 3:
+            // buscarEstudante(opcao, arquivoTexto, textoAux);
+           // printf("caso 3 em desenvolvimento!!!\n");
+           // system("pause");
+        break;
+        case 4:
+            printf("SAINDO...\n");
+            system("pause");
+        break;
+        default:
+            printf("opcao invalida\n");
+
+         system("pause");
+
+     }
+     	system("@cls||clear");
+
+}while(opcao != 4);
 
 }
-//---------------------------------------------------------------------------------------------------------
 
-//------------------------------------------------------------------------------------------------
