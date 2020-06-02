@@ -82,26 +82,9 @@ while (!feof(arquivo)){
 		insert_list (&C, s);
 	}
 }
-int main () {
-	list		C;	/* a class of students */
-	student		s, *novo;
-	int		id;
-	FILE		*arquivo;
 
-	char caminho[30] = "./List.txt";
-
-    arquivo = abreArquivo(caminho);
-   create_list (&C);
-   
-    carregarDados(arquivo, C, s);
-    
-    	
-
-//	create_list (&C);
-
-
-//---------------------------------------------------------------------------------------------------------
-	do{
+buscarEstudante(int id, student *novo, list C){
+		do{
 		 printf("\n");
          printf ("Informe a ID do estudante:");
          printf("\n");
@@ -124,4 +107,23 @@ int main () {
 	}
 	 while (id !=0);
 }
+//}
+int main () {
+	list		C;	/* a class of students */
+	student		s, *novo;
+	int		id;
+	FILE		*arquivo;
+
+	char caminho[30] = "./List.txt";
+
+    arquivo = abreArquivo(caminho);
+   create_list (&C);
+   
+    carregarDados(arquivo, C, s);
+    
+    buscarEstudante(id, novo, C);
+
+}
+//---------------------------------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------------------------
