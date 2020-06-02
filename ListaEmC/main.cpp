@@ -20,7 +20,7 @@ typedef struct _node {
 
 void insert_list (list *topo, student k) {
 	node	*novo;
-	novo = (node *) malloc (sizeof (node));
+	novo = (node*) malloc (sizeof (node));
 	novo->k = k;
 	novo->next = *topo;
 
@@ -75,6 +75,13 @@ void fecharArquivo(FILE *arquivo){
     fclose(arquivo);
 }
 
+carregarDados(FILE *arquivo, list &C, student s){
+while (!feof(arquivo)){
+		fscanf (arquivo, "%d %s %f\n", &s.id, s.name, &s.gpa);
+
+		insert_list (&C, s);
+	}
+}
 int main () {
 	list		C;	/* a class of students */
 	student		s, *novo;
@@ -84,14 +91,16 @@ int main () {
 	char caminho[30] = "./List.txt";
 
     arquivo = abreArquivo(caminho);
+   create_list (&C);
+   
+    carregarDados(arquivo, C, s);
+    
+    	
 
-	create_list (&C);
+//	create_list (&C);
 
- while (!feof(arquivo)){
-		fscanf (arquivo, "%d %s %f\n", &s.id, s.name, &s.gpa);
 
-		insert_list (&C, s);
-	}
+//---------------------------------------------------------------------------------------------------------
 	do{
 		 printf("\n");
          printf ("Informe a ID do estudante:");
@@ -103,7 +112,7 @@ int main () {
          novo = search_list (C, id);
 		if (id == 0)
             {
-                printf("VOLTANDO PARA O MENU...");
+                printf("VOLTANDO PARA O MENU...");                              // modularizr como buscarEstudante
             }else if (!novo){
                   printf ("ID #%d nao encontrado!\n", id);
             }
@@ -115,3 +124,4 @@ int main () {
 	}
 	 while (id !=0);
 }
+//------------------------------------------------------------------------------------------------
