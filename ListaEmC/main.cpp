@@ -8,6 +8,7 @@ typedef struct _student {
 	int		  id;
 	char		name[100];
 	float		gpa;
+	struct _student* next;
 } student;
 
 
@@ -44,16 +45,17 @@ void create_list (list *L) {
 	*L = NULL;
 }
 
- FILE* abreArquivo(char caminho[30]){
+ FILE* abreArquivo(char caminho[30], char caso){
     FILE *arquivo;
-   char caso = 'l';
+  // char caso = 'l';
     switch(caso){
 
         case'l':
             arquivo = fopen (caminho,"r");
         break;
         case'g':
-            printf("caso <g> gravação em desenvolvimento!");
+            printf("caso <g> gravação em desenvolvimento!\n");
+            arquivo = fopen (caminho,"wt");
             system("pause");
         break;
         case'a':
@@ -95,7 +97,7 @@ buscarEstudante(int id, student *novo, list C){
          novo = search_list (C, id);
 		if (id == 0)
             {
-                printf("VOLTANDO PARA O MENU...");                              // modularizr como buscarEstudante
+                printf("VOLTANDO PARA O MENU...");                             
             }else if (!novo){
                   printf ("ID #%d nao encontrado!\n", id);
             }
@@ -107,13 +109,49 @@ buscarEstudante(int id, student *novo, list C){
 	}
 	 while (id !=0);
 }
-//}
+
+void insereH(int id, char n[100], float gpa, student **topo){ // int id, char n[100], float gpa, student **head   //student **head, int id, char n[], float gpa
+    student *novo;
+    novo =(student*) malloc(sizeof(student));
+  //----------------------------------------------------------------------
+     printf("informe a ID do Aluno\n");
+      //  scanf("%d",&id);
+         scanf("%d",&novo->id);
+       /// fprintf(arquivo,"%d ",&s.id);
+
+        printf("informe o nome do Aluno\n");
+      //  scanf("%s", s.name);
+        scanf("%s", &novo->name);
+      ///  fprintf(arquivo,"%s ",s.name);
+
+        printf("Informe a GPA do Aluno\n");
+      //  scanf("%.20f ",&s.gpa);
+         scanf("%.20f ",&novo->gpa);
+
+      ///  fprintf(arquivo, "%f", &s.gpa);
+  //------------------------------------------------------------
+
+    novo->id = id;
+    novo->name[100] = n[100];
+    novo->gpa = gpa ;
+
+    if(*topo == NULL){
+            novo->next = NULL;
+
+            *topo = novo;
+    }else{
+            novo->next = *topo;
+            *topo = novo;
+    }
+     system("pause");
+}
 int main () {
 	list		C;	/* a class of students */
 	student		s, *novo;
 	int		id;
 	FILE		*arquivo;
 	int opcao;
+	char caso = 'l';
 
 	char caminho[30] = "./List.txt";
 	
@@ -139,22 +177,26 @@ printf("============================LISTA ENCADEADA==========================\n\
 
     switch(opcao){
         case 1:
-        	 arquivo = abreArquivo(caminho);
+        	 arquivo = abreArquivo(caminho, caso);
              create_list (&C);
              carregarDados(arquivo, C, s);
              buscarEstudante(id, novo, C);
-          // buscarEstudante(opcao, arquivoTexto, textoAux);
-        break;
+             fecharArquivo(arquivo);
+             
+            break;
 
         case 2:
-           // buscarEstudante(opcao, arquivoTexto, textoAux );
-       // cadastrarEstudante();
-         system("pause");
+        	caso = 'g';
+        	 arquivo = abreArquivo(caminho, caso);
+             create_list (&C);
+             carregarDados(arquivo, C, s);
+                    // buscarEstudante(id, novo, C);
+            //	insereH(student);
+            fecharArquivo(arquivo);
+            system("pause");
         break;
         case 3:
-            // buscarEstudante(opcao, arquivoTexto, textoAux);
-           // printf("caso 3 em desenvolvimento!!!\n");
-           // system("pause");
+          
         break;
         case 4:
             printf("SAINDO...\n");
