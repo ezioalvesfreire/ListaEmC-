@@ -29,19 +29,23 @@ Porque de se usar alocação de memória de forma dinâmica? Essa é uma técnic
  ## Interface do tipo pilha
  
  Neste artigo será apresentado duas formas de implementação de pilhas: usando vetor e usando lista encadeada, vamos considerar a implementação de cinco operações:
-criar uma estrutura de pilha;
-inserir um elemento no topo (push);
-remover o elemento do topo (pop);
-verificar se a pilha está vazia;
-liberar a estrutura de pilha.
+ 
+    -criar uma estrutura de pilha;
+    -inserir um elemento no topo (push);
+    -remover o elemento do topo (pop);
+    -verificar se a pilha está vazia;
+    -liberar a estrutura de pilha.
 
  O arquivo pilha.h, que representa a interface do tipo, pode conter o seguinte código:
-typedef struct pilha Pilha;
-Pilha* cria (void);
-void push (Pilha* p, float v);
-float pop (Pilha* p);
-int vazia (Pilha* p);
-void libera (Pilha* p);
+
+      typedef struct pilha Pilha;
+      
+      Pilha* cria (void);
+      void push (Pilha* p, float v);
+      float pop (Pilha* p);
+      int vazia (Pilha* p);
+      void libera (Pilha* p);
+      
 A função cria aloca dinamicamente a estrutura da pilha, inicializa seus campos e
 retorna seu ponteiro; as funções push e pop inserem e retiram, respectivamente, um
 valor real na pilha; a função vazia informa se a pilha está ou não vazia; e a função
