@@ -56,7 +56,7 @@ libera destrói a pilha, liberando toda a memória usada pela estrutura.
  Quando se sabe de antemão o número máximo de elementos a serem armazenados em uma pilha de dados, a implementação pode ser feita utilizando vetor, por se tratar de uma implementação bastante simples.
  A exemplo teremos um vetor chamado(vet) podendo armazenar n elementos na pilha, o elemento vet[n-1] representa o elemento do topo.
  
- ##### Estrutura que representa tipo de pilha utilizando vetor, e contendo o número máximo de elementos que podem ser armazenados
+ ### Estrutura que representa tipo de pilha utilizando vetor, e contendo o número máximo de elementos que podem ser armazenados
      #define MAX 50
      
      struct pilha {
@@ -72,4 +72,15 @@ libera destrói a pilha, liberando toda a memória usada pela estrutura.
         p->n = 0; /* inicializa com zero elementos */
         return p;
      }
+### Função para inserir um elemento na pilha, usamos a próxima posição livre, devemos certificar de que existe espaço para inserção, pois se trata de um vetor com dimensão fixa.
 
+    void push (Pilha* p, float v)
+    {
+       if (p->n == MAX) { /* capacidade esgotada */
+           printf("Capacidade da pilha estourou.\n");
+           exit(1); /* aborta programa */
+       }
+      /* insere elemento na próxima posição livre */
+       p->vet[p->n] = v;
+       p->n++;
+    }
