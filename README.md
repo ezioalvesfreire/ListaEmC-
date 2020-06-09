@@ -64,4 +64,12 @@ libera destrói a pilha, liberando toda a memória usada pela estrutura.
         float vet[MAX];
      };
 
+### Função para criar a pilha alocada dinamicamente, essa estrutura e inicializa a pilha como sendo vazia
+
+     Pilha* cria (void)
+     {
+        Pilha* p = (Pilha*) malloc(sizeof(Pilha));
+        p->n = 0; /* inicializa com zero elementos */
+        return p;
+     }
 
