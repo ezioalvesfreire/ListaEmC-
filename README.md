@@ -22,7 +22,7 @@ Porque de se usar alocação de memória de forma dinâmica? Essa é uma técnic
 
  Empilhar e desempilhar são duas operações básicas que devem ser implementadas em uma estrutura de pilha: sendo a operação empilhar que é comum usar o termo em inglês (push)  que insere o elemento no topo, e a operação desempilhar retira do topo e o termo comumente usado em inglês é o (pop).
  
-<img src='https://raw.githubusercontent.com/ezioalvesfreire/ListaEmC-/master/638586109_prato_de_prity1.png.png' width='100'><img src='https://github.com/ezioalvesfreire/ListaEmC-/blob/master/seta.svg' width='80'>
+<img src='https://raw.githubusercontent.com/ezioalvesfreire/ListaEmC-/master/638586109_prato_de_prity1.png.png' width='180'><img src='https://github.com/ezioalvesfreire/ListaEmC-/blob/master/seta.svg' width='80'><img src='https://github.com/ezioalvesfreire/ListaEmC-/blob/master/stack-pop.gif' width='280'><img src='https://github.com/ezioalvesfreire/ListaEmC-/blob/master/stack-push.gif' width='280'>
  
  ### Veja com mais detalhes acessando na página que foi usada como referência clicando no botão a seguir [clique aqui](http://www.ic.uff.br/~cbraga/ed/apostila/ed11-pilhas.pdf)
 
