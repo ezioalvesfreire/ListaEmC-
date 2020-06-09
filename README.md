@@ -84,3 +84,17 @@ libera destrói a pilha, liberando toda a memória usada pela estrutura.
        p->vet[p->n] = v;
        p->n++;
     }
+### Função verifica se a pilha não está vazia e retira o elemento do topo da pilha função (pop), fornecendo seu valor como retorno.
+
+    float pop (Pilha* p)
+    {
+       float v;
+       if (vazia(p)) {
+           printf("Pilha vazia.\n");
+           exit(1); /* aborta programa */
+       }
+       /* retira elemento do topo */
+       v = p->vet[p->n-1];
+       p->n--;
+       return v;
+    }
