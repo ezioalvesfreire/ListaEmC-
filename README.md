@@ -51,3 +51,9 @@ retorna seu ponteiro; as funções push e pop inserem e retiram, respectivamente
 valor real na pilha; a função vazia informa se a pilha está ou não vazia; e a função
 libera destrói a pilha, liberando toda a memória usada pela estrutura.
 
+## Implementação de pilha com vetor
+
+ Quando se sabe de antemão o número máximo de elementos a serem armazenados em uma pilha de dados, a implementação pode ser feita utilizando vetor, por se tratar de uma implementação bastante simples.
+ A exemplo teremos um vetor chamado(vet) podendo armazenar n elementos na pilha, o elemento vet[n-1] representa o elemento do topo.
+
+
