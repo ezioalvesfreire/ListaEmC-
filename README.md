@@ -1,6 +1,6 @@
 # Estrutura de dados - Alocação de memória, listas, pilhas
 
-# Função malloc na linguagem de programação C
+## Função malloc na linguagem de programação C
 
  A função malloc()(memory allocation), nos possibilita alocar um espaço em memória de forma dinâmica, ou seja em tempo de execução, entre as funções de alocação de memória de forma dinâmica ainda temos a função, (calloc e realoc), com isso veremos a grande utilidade dos ponteiros em C que será usado em nossos estudos sobre listas encadeadas, filas e pilhas.
 
@@ -13,5 +13,9 @@ sizeof, que do português significa tamanho de: que pode ser por EX: sizeof(int)
 ex: em uma arquitetura 32 bits um inteiro pode ter 4 bytes já em um sistema 64 bits o mesmo inteiro pode ter 8 bytes, portanto a melhor forma de se expressar é dizer que se tem um sizeof de um determinado tipo. 
 
 Porque de se usar alocação de memória de forma dinâmica? Essa é uma técnica de se economizar memória, e deixar o programa mais rápido.
+
+### Veja na página que foi usada como referência, clicando no botão a seguir [clique aqui]( https://www.cprogressivo.net/2013/04/Como-usar-a-funcao-malloc-para-alocar-memoria-em-linguagem-C.html)
+
+## Pilhas
 
 
