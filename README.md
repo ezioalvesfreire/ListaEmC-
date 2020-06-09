@@ -14,9 +14,13 @@ ex: em uma arquitetura 32 bits um inteiro pode ter 4 bytes já em um sistema 64 
 
 Porque de se usar alocação de memória de forma dinâmica? Essa é uma técnica de se economizar memória, e deixar o programa mais rápido.
 
-#### Veja na página que foi usada como referência, clicando no botão a seguir [clique aqui]( https://www.cprogressivo.net/2013/04/Como-usar-a-funcao-malloc-para-alocar-memoria-em-linguagem-C.html)
+### Veja com mais detalhes acessando na página que foi usada como referência clicando no botão a seguir [clique aqui]( https://www.cprogressivo.net/2013/04/Como-usar-a-funcao-malloc-para-alocar-memoria-em-linguagem-C.html)
 
 ## Pilhas
 
- Pilhas é uma das estruturas de dados mais simples e comum, inclusive sendo implementada diretamente no hardware das maquinas modernas, a ideia de pilha é literalmente uma pilha de informações (dados), onde um dado sobrepõe o outro através de seu topo, e a ordem de retirada é inversa a ordem que foram colocados, para isso utilizamos o termo LIFO (last in, first out) que do português significa o primeiro a entrar é o último a sair,  e lembra muito uma pilha de pratos.
+ Pilhas é uma das estruturas de dados mais simples e comum, inclusive sendo implementada diretamente no hardware das maquinas modernas, a ideia de pilha é literalmente uma pilha em que os objetos são sobrepostos uns aos outros, em nosso caso de estrutura de dados são de informações (dados), onde um dado sobrepõe o outro através de seu topo, e a ordem de retirada é inversa a ordem que foram colocados, para isso utilizamos o termo LIFO (last in, first out) que do português significa o primeiro a entrar é o último a sair,  e lembra muito uma pilha de pratos.
+
+ Empilhar e desempilhar são duas operações básicas que devem ser implementadas em uma estrutura de pilha: sendo a operação empilhar que é comum usar o termo em inglês (push)  que insere o elemento no topo, e a operação desempilhar retira do topo e o termo comumente usado em inglês é o (pop).
+ 
+ ### Veja com mais detalhes acessando na página que foi usada como referência clicando no botão a seguir [clique aqui](http://www.ic.uff.br/~cbraga/ed/apostila/ed11-pilhas.pdf)
 
