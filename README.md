@@ -14,7 +14,7 @@ ex: em uma arquitetura 32 bits um inteiro pode ter 4 bytes já em um sistema 64 
 
 Porque de se usar alocação de memória de forma dinâmica? Essa é uma técnica de se economizar memória, e deixar o programa mais rápido.
 
-### Veja com mais detalhes acessando na página que foi usada como referência clicando no botão a seguir [clique aqui]( https://www.cprogressivo.net/2013/04/Como-usar-a-funcao-malloc-para-alocar-memoria-em-linguagem-C.html)
+#### Veja com mais detalhes acessando a página que foi usada como referência, clicando no botão a seguir [clique aqui]( https://www.cprogressivo.net/2013/04/Como-usar-a-funcao-malloc-para-alocar-memoria-em-linguagem-C.html)
 
 ## Pilhas
 
@@ -24,5 +24,26 @@ Porque de se usar alocação de memória de forma dinâmica? Essa é uma técnic
  
 <img src='https://raw.githubusercontent.com/ezioalvesfreire/ListaEmC-/master/638586109_prato_de_prity1.png.png' width='180'><img src='https://github.com/ezioalvesfreire/ListaEmC-/blob/master/seta.svg' width='80'><img src='https://github.com/ezioalvesfreire/ListaEmC-/blob/master/stack-pop.gif' width='280'><img src='https://github.com/ezioalvesfreire/ListaEmC-/blob/master/stack-push.gif' width='280'>
  
- ### Veja com mais detalhes acessando na página que foi usada como referência clicando no botão a seguir [clique aqui](http://www.ic.uff.br/~cbraga/ed/apostila/ed11-pilhas.pdf)
+ #### Veja com mais detalhes acessando a página que foi usada como referência, clicando no botão a seguir [clique aqui](http://www.ic.uff.br/~cbraga/ed/apostila/ed11-pilhas.pdf)
+ 
+ ## Interface do tipo pilha
+ 
+ Neste artigo será apresentado duas formas de implementação de pilhas: usando vetor e usando lista encadeada, vamos considerar a implementação de cinco operações:
+criar uma estrutura de pilha;
+inserir um elemento no topo (push);
+remover o elemento do topo (pop);
+verificar se a pilha está vazia;
+liberar a estrutura de pilha.
+
+ O arquivo pilha.h, que representa a interface do tipo, pode conter o seguinte código:
+typedef struct pilha Pilha;
+Pilha* cria (void);
+void push (Pilha* p, float v);
+float pop (Pilha* p);
+int vazia (Pilha* p);
+void libera (Pilha* p);
+A função cria aloca dinamicamente a estrutura da pilha, inicializa seus campos e
+retorna seu ponteiro; as funções push e pop inserem e retiram, respectivamente, um
+valor real na pilha; a função vazia informa se a pilha está ou não vazia; e a função
+libera destrói a pilha, liberando toda a memória usada pela estrutura.
 
