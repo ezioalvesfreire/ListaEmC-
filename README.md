@@ -108,5 +108,88 @@ libera destrói a pilha, liberando toda a memória usada pela estrutura.
       {
          free(p);
       }
+      
+### Implementação de pilha com lista
 
- #### Veja com mais detalhes acessando a página que foi usada como referência, clicando no botão a seguir [clique aqui](http://www.ic.uff.br/~cbraga/ed/apostila/ed11-pilhas.pdf)
+Quando não se sabe o número máximo de elementos a serem armazenados na pilha, devemos implementar a pilha usando estrutura de dados dinâmica, empregando uma lista encadeada. Os elementos são armazenados na lista e a pilha pode ser representada por um ponteiro para o primeiro nó da lista.
+
+### O nó da lista para armazenar valores reais:
+      
+      struct no {
+         float info;
+         struct no* prox;
+     };
+     typedef struct no No;
+     
+### A estrutura da pilha é:
+     struct pilha {
+        No* prim;
+     };
+     
+### A função cria aloca a estrutura da pilha e inicializa a lista como sendo vazia.
+
+      Pilha* cria (void)
+      {
+         Pilha* p = (Pilha*) malloc(sizeof(Pilha));
+         p->prim = NULL;
+         return p;
+      }
+      
+ O topo da pilha representa o primeiro elemento da lista, e cada novo elemento é inserido no inicio da lista e sempre que necessário retirar também é retirado do início da lista, para que se possa inserir no inicio e remover do início, precisamos de duas funções auxiliares, ambas retornam o novo primeiro nó da lista.
+     
+     /* função auxiliar: insere no início */
+     No* ins_ini (No* l, float v)
+    {
+        No* p = (No*) malloc(sizeof(No));
+        p->info = v;
+        p->prox = l;
+        return p;
+    }
+    
+    /* função auxiliar: retira do início */
+    No* ret_ini (No* l)
+    {
+        No* p = l->prox;
+        free(l);
+        return p;
+    }
+    
+### As funções que manipulam a pilha fazem uso dessas funções de lista:
+
+     void push (Pilha* p, float v)
+     {
+         p->prim = ins_ini(p->prim,v);
+     }
+     float pop (Pilha* p)
+    {
+        float v;
+       if (vazia(p)) {
+          printf("Pilha vazia.\n");
+          exit(1); /* aborta programa */
+       }
+       v = p->prim->info;
+       p->prim = ret_ini(p->prim);
+       return v;
+    }
+    
+### A pilha estará vazia se a lista estiver vazia:
+
+        int vazia (Pilha* p)
+       {
+            return (p->prim==NULL);
+       }
+       
+### Função que libera a pilha deve antes liberar todos os elementos da lista.
+void libera (Pilha* p)
+{
+ No* q = p->prim;
+ while (q!=NULL) {
+ No* t = q->prox;
+ free(q);
+ q = t;
+ }
+ free(p);
+}
+    
+
+#### Veja com mais detalhes acessando a página que foi usada como referência, clicando no botão a seguir [clique aqui](http://www.ic.uff.br/~cbraga/ed/apostila/ed11-pilhas.pdf)
