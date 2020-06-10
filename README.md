@@ -23,9 +23,7 @@ Porque de se usar alocação de memória de forma dinâmica? Essa é uma técnic
  Empilhar e desempilhar são duas operações básicas que devem ser implementadas em uma estrutura de pilha: sendo a operação empilhar que é comum usar o termo em inglês (push)  que insere o elemento no topo, e a operação desempilhar retira do topo e o termo comumente usado em inglês é o (pop).
  
 <img src='https://raw.githubusercontent.com/ezioalvesfreire/ListaEmC-/master/638586109_prato_de_prity1.png.png' width='180'><img src='https://github.com/ezioalvesfreire/ListaEmC-/blob/master/seta.svg' width='80'><img src='https://github.com/ezioalvesfreire/ListaEmC-/blob/master/stack-pop.gif' width='280'><img src='https://github.com/ezioalvesfreire/ListaEmC-/blob/master/stack-push.gif' width='280'>
- 
- #### Veja com mais detalhes acessando a página que foi usada como referência, clicando no botão a seguir [clique aqui](http://www.ic.uff.br/~cbraga/ed/apostila/ed11-pilhas.pdf)
- 
+  
  ## Interface do tipo pilha
  
  Neste artigo será apresentado duas formas de implementação de pilhas: usando vetor e usando lista encadeada, vamos considerar a implementação de cinco operações:
@@ -56,7 +54,7 @@ libera destrói a pilha, liberando toda a memória usada pela estrutura.
  Quando se sabe de antemão o número máximo de elementos a serem armazenados em uma pilha de dados, a implementação pode ser feita utilizando vetor, por se tratar de uma implementação bastante simples.
  A exemplo teremos um vetor chamado(vet) podendo armazenar n elementos na pilha, o elemento vet[n-1] representa o elemento do topo.
  
- ### Estrutura que representa tipo de pilha utilizando vetor, e contendo o número máximo de elementos que podem ser armazenados
+ ### Estrutura que representa pilha utilizando vetor, contendo o número máximo de elementos que pode ser armazenados
      #define MAX 50
      
      struct pilha {
@@ -98,3 +96,17 @@ libera destrói a pilha, liberando toda a memória usada pela estrutura.
        p->n--;
        return v;
     }
+    
+### Função que verifica se a pilha está vazia:
+      int vazia (Pilha* p)
+      {
+         return (p->n == 0);
+      }
+       
+### Função para liberar a memória alocada pela pilha:
+      void libera (Pilha* p)
+      {
+         free(p);
+      }
+
+ #### Veja com mais detalhes acessando a página que foi usada como referência, clicando no botão a seguir [clique aqui](http://www.ic.uff.br/~cbraga/ed/apostila/ed11-pilhas.pdf)
